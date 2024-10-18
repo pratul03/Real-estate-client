@@ -53,6 +53,7 @@ nav {
     justify-content: flex-end;
     background-color: #fcf5f3;
     height: 100%;
+    position: relative;
 
     @include md {
       background-color: transparent;
@@ -61,6 +62,7 @@ nav {
     a {
       padding: 12px 24px;
       margin: 20px;
+      z-index: 2;
     }
 
     .user {
@@ -104,9 +106,39 @@ nav {
         }
       }
     }
+    .authBtn {
+      display: flex;
+      justify-content: space-between;
+    }
 
     .register {
-      background-color: #fece51;
+      letter-spacing: 1px;
+      color: #fcf5f3;
+      border: none;
+      border-radius: 4px;
+      background-color: #ff712f;
+      font-weight: bold;
+
+      &:hover {
+        border: 1px solid #ff712f;
+        color: #ff712f;
+        background-color: transparent;
+      }
+    }
+    .login {
+      letter-spacing: 1px;
+      color: #414141;
+      border: 1px solid #ff712f;
+      border-radius: 4px;
+      background-color: transparent;
+      font-weight: bold;
+
+      &:hover {
+        color: #fcf5f3;
+        background-color: #414141;
+        border: 2px solid #ff712f;
+        font-weight: bolder;
+      }
     }
 
     .menuIcon {
@@ -127,20 +159,21 @@ nav {
     .menu {
       position: absolute;
       top: 0;
-      right: -50%;
-      background-color: black;
-      color: white;
-      height: 100vh;
-      width: 50%;
-      transition: all 1s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
+      display: none;
+      z-index: 1;
 
       &.active {
         right: 0;
+        background-color: rgb(24, 24, 24);
+        color: white;
+        height: 100vh;
+        width: 50%;
+        transition: all 1s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
       }
 
       @include sm {

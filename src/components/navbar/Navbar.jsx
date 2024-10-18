@@ -37,12 +37,14 @@ function Navbar() {
             </Link>
           </div>
         ) : (
-          <>
-            <a href="/login">Sign in</a>
+          <div className="authBtn">
+            <a href="/login" className="login">
+              Sign in
+            </a>
             <a href="/register" className="register">
               Sign up
             </a>
-          </>
+          </div>
         )}
         <div className="menuIcon">
           <img
@@ -56,8 +58,8 @@ function Navbar() {
           <a href="/">About</a>
           <a href="/">Contact</a>
           <a href="/">Agents</a>
-          <a href="/">Sign in</a>
-          <a href="/">Sign up</a>
+          <a href="/login">Sign in</a>
+          <a href="/register">Sign up</a>
         </div>
       </div>
     </nav>
