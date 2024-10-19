@@ -3,15 +3,21 @@ import List from "../../components/list/List";
 import "./profilePage.scss";
 import apiRequest from "../../lib/apiRequest";
 import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
-import { Suspense, useContext } from "react";
+import { Suspense, useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 function ProfilePage() {
   const data = useLoaderData();
-
   const { updateUser, currentUser } = useContext(AuthContext);
-
   const navigate = useNavigate();
+
+  // State to manage avatar image toggle
+  const [isAvatarEnlarged, setIsAvatarEnlarged] = useState(false);
+
+  // Toggle function to show/hide the full-size avatar
+  const toggleAvatarSize = () => {
+    setIsAvatarEnlarged((prevState) => !prevState);
+  };
 
   const handleLogout = async () => {
     try {
@@ -22,6 +28,7 @@ function ProfilePage() {
       console.log(err);
     }
   };
+
   return (
     <div className="profilePage">
       <div className="details">
@@ -35,7 +42,13 @@ function ProfilePage() {
           <div className="info">
             <span>
               Avatar:
-              <img src={currentUser.avatar || "noavatar.jpg"} alt="" />
+              <img
+                src={currentUser.avatar || "noavatar.jpg"}
+                alt=""
+                className="avatar"
+                onClick={toggleAvatarSize} // Add onClick handler to toggle image size
+                style={{ cursor: "pointer" }}
+              />
             </span>
             <span>
               Username: <b>{currentUser.username}</b>
@@ -45,6 +58,18 @@ function ProfilePage() {
             </span>
             <button onClick={handleLogout}>Logout</button>
           </div>
+
+          {/* Modal for enlarged avatar */}
+          {isAvatarEnlarged && (
+            <div className="avatar-modal" onClick={toggleAvatarSize}>
+              <img
+                src={currentUser.avatar || "noavatar.jpg"}
+                alt="Enlarged Avatar"
+                className="enlarged-avatar"
+              />
+            </div>
+          )}
+
           <div className="title">
             <h1>My List</h1>
             <Link to="/add">
@@ -79,7 +104,7 @@ function ProfilePage() {
               resolve={data.chatResponse}
               errorElement={<p>Error loading chats!</p>}
             >
-              {(chatResponse) => <Chat chats={chatResponse.data}/>}
+              {(chatResponse) => <Chat chats={chatResponse.data} />}
             </Await>
           </Suspense>
         </div>

@@ -7,6 +7,7 @@ nav {
   align-items: center;
 
   a {
+    color: #6c6c6c;
     font-size: 16px;
     font-weight: bold;
     transition: all 0.3s ease;
@@ -99,6 +100,9 @@ nav {
         cursor: pointer;
         border: none;
         position: relative;
+        &:hover {
+          scale: 0.9;
+        }
 
         .notification {
           position: absolute;
@@ -126,11 +130,11 @@ nav {
       border-radius: 4px;
       background-color: #ff712f;
       font-weight: bold;
-      scale: 0.9;
+      scale: 1;
 
       &:hover {
         font-size: 16px;
-        scale: 1;
+
         border: 2px solid #ff712f;
         color: #ff712f;
         background-color: transparent;
@@ -173,7 +177,6 @@ nav {
         border-radius: 6px;
         color: rgb(255, 255, 255);
         border: none;
-        scale: 0.9;
       }
       &:hover::after {
         border: none;

@@ -31,13 +31,14 @@
         justify-content: space-between;
 
         h1 {
-          font-weight: 300;
+          font-weight: 400;
+          color: rgb(92, 92, 92);
         }
 
         button {
           font-size: 16px;
           color: #fcf5f3;
-          word-spacing: 2px;
+          letter-spacing: 2px;
           font-weight: 500;
           padding: 12px 20px;
           background-color: #ff712f;
@@ -55,25 +56,52 @@
         span {
           display: flex;
           align-items: center;
+          margin-left: 10px;
           gap: 20px;
         }
 
         button {
           width: 100px;
-          background-color: teal;
-          border: none;
-          color: white;
+          background-color: transparent;
+          border: 2px solid #ff5656;
+          color: rgb(255, 45, 45);
           padding: 10px 20px;
-          cursor: pointer;
           border-radius: 5px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            cursor: pointer;
+            color: #fcf5f3;
+            border: 2px solid white;
+            font-weight: 500;
+            background-color: #ff3c3c;
+          }
         }
 
         img {
-          width: 40px;
-          height: 40px;
+          width: 60px;
+          height: 60px;
           border-radius: 50%;
           object-fit: cover;
         }
+      }
+      .avatar-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .enlarged-avatar {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 10px;
       }
     }
   }

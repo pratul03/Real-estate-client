@@ -3,7 +3,7 @@
   display: flex;
 
   .formContainer {
-    flex:3;
+    flex: 3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,22 +17,28 @@
         flex-direction: column;
         gap: 5px;
 
-        label {
-        }
-
         input {
-          padding: 20px;
+          padding: 16px 20px;
+          border: 2px solid rgb(197, 197, 197);
           border-radius: 5px;
-          border: 1px solid gray;
+          font-size: medium;
+          transition: all 0.3s ease;
+
+          &:focus {
+            border: 2px solid black;
+            outline: none;
+          }
         }
       }
       button {
-        padding: 20px;
+        font-size: 20px;
+        letter-spacing: 2px;
+        padding: 18px;
         border-radius: 5px;
         border: none;
-        background-color: teal;
+        background-color: #e76e1d;
         color: white;
-        font-weight: bold;
+        font-weight: 500;
         cursor: pointer;
       }
     }
@@ -47,7 +53,7 @@
     align-items: center;
     justify-content: center;
 
-    .avatar{
+    .avatar {
       width: 50%;
       object-fit: cover;
     }
