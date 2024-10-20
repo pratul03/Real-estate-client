@@ -32,7 +32,7 @@ function UploadWidget({ uwConfig, setState }) {
         (error, result) => {
           if (!error && result && result.event === "success") {
             console.log("Done! Here is the image info: ", result.info);
-            setState(result.info.secure_url);
+            setState((prev) => [...prev, result.info.secure_url]);
           }
         }
       );
