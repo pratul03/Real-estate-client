@@ -38,7 +38,7 @@ function NewPostPage() {
           utilities: inputs.utilities,
           pet: inputs.pet,
           income: inputs.income,
-          size: parseInt(inputs.size),
+          size: inputs.size,
           school: parseInt(inputs.school),
           bus: parseInt(inputs.bus),
           restaurant: parseInt(inputs.restaurant),
@@ -138,7 +138,7 @@ function NewPostPage() {
             </div>
             <div className="item">
               <label htmlFor="size">Total Size (sqft)</label>
-              <input min={0} id="size" name="size" type="number" />
+              <input min={0} id="size" name="size" type="text" />
             </div>
             <div className="item">
               <label htmlFor="school">School</label>
