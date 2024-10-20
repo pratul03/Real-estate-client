@@ -17,7 +17,7 @@ function SinglePage() {
     if (!currentUser) {
       navigate("/login");
     }
-    // AFTER REACT 19 UPDATE TO USEOPTIMISTIK HOOK
+    // AFTER REACT 19 UPDATE TO useOPTIMISTIK HOOK
     setSaved((prev) => !prev);
     try {
       await apiRequest.post("/users/save", { postId: post.id });
@@ -76,9 +76,9 @@ function SinglePage() {
               <div className="featureText">
                 <span>Pet Policy</span>
                 {post.postDetail.pet === "allowed" ? (
-                  <p>Pets Allowed</p>
+                  <p>Pets are Allowed</p>
                 ) : (
-                  <p>Pets not Allowed</p>
+                  <p>Pets are not Allowed</p>
                 )}
               </div>
             </div>
