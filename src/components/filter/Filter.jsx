@@ -96,7 +96,7 @@ function Filter() {
         <div className="item">
           <label htmlFor="bedroom">Bedroom</label>
           <input
-            type="text"
+            type="number"
             id="bedroom"
             name="bedroom"
             placeholder="any"
