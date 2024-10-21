@@ -21,7 +21,7 @@ function Chat({ chats }) {
 
   const handleOpenChat = async (id, receiver) => {
     try {
-      const res = await apiRequest("/chats/" + id);
+      const res = await apiRequest(`/chats/${id}`);
       if (!res.data.seenBy.includes(currentUser.id)) {
         decrease();
       }
@@ -39,7 +39,7 @@ function Chat({ chats }) {
 
     if (!text) return;
     try {
-      const res = await apiRequest.post("/messages/" + chat.id, { text });
+      const res = await apiRequest.post(`/messages/${chat.id}`, { text });
       setChat((prev) => ({ ...prev, messages: [...prev.messages, res.data] }));
       e.target.reset();
       socket.emit("sendMessage", {
@@ -54,7 +54,7 @@ function Chat({ chats }) {
   useEffect(() => {
     const read = async () => {
       try {
-        await apiRequest.put("/chats/read/" + chat.id);
+        await apiRequest.put(`/chats/read/${chat.id}`);
       } catch (err) {
         console.log(err);
       }
